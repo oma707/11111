@@ -63,16 +63,20 @@ struct ContentView: View {
 
 struct StationDetailView: View {
     let station: Station
-    
+    @State private var isMapViewPresented = false
+
     var body: some View {
         VStack {
             Text("Station Name: \(station.name)")
             Text("IP Address: \(station.ipAddress)")
             Text("Port: \(station.port)")
             Button("Connect") {
-                // Add your connection logic here
+                isMapViewPresented = true
             }
             .padding()
+            .sheet(isPresented: $isMapViewPresented) {
+                MapView()
+            }
         }
         .navigationTitle("Station Details")
     }

@@ -49,7 +49,7 @@ struct Quakes: View {
             try? await provider.fetchQuakes()
         }
         .sheet(isPresented: $isShowingStations) {
-            ContentView() // Replace StationsListView with your actual view for stations
+            ContentView() 
         }
         .overlay(
             Button(action: {
